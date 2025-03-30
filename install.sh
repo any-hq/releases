@@ -95,12 +95,42 @@ adjust_format() {
   esac
   true
 }
+
 adjust_os() {
   # adjust archive name based on OS
+  case ${OS} in
+    386) OS=32bit ;;
+    amd64) OS=64bit ;;
+    arm) OS=ARM ;;
+    arm64) OS=ARM64 ;;
+    ppc64le) OS=Linux ;;
+    s390x) OS=Linux ;;
+    darwin) OS=macOS ;;
+    dragonfly) OS=DragonFlyBSD ;;
+    freebsd) OS=FreeBSD ;;
+    linux) OS=Linux ;;
+    netbsd) OS=NetBSD ;;
+    openbsd) OS=OpenBSD ;;
+  esac
   true
 }
 adjust_arch() {
   # adjust archive name based on ARCH
+  case ${ARCH} in
+    386) ARCH=32bit ;;
+    amd64) ARCH=64bit ;;
+    arm) ARCH=ARM ;;
+    armv7) ARCH=ARM ;;
+    arm64) ARCH=ARM64 ;;
+    ppc64le) ARCH=PPC64LE ;;
+    s390x) ARCH=s390x ;;
+    darwin) ARCH=macOS ;;
+    dragonfly) ARCH=DragonFlyBSD ;;
+    freebsd) ARCH=FreeBSD ;;
+    linux) ARCH=Linux ;;
+    netbsd) ARCH=NetBSD ;;
+    openbsd) ARCH=OpenBSD ;;
+  esac
   true
 }
 
